@@ -13,4 +13,10 @@ func ConvertVolts(t *testing.T) {
 	var target Target
 	target = &Adapter{adaptee}
 	target.CovertTo5V()
+
+
+	// 100v的适配器
+	adaptee = &Volts100{}
+	target = &Adapter{adaptee}
+	target.CovertTo5V()
 }
