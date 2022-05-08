@@ -7,5 +7,14 @@ golang解释设计模式
 
 抽象工厂模式 - 文件日志\redis日志\Elastic日志...   -- 侧重行为的抽象定义，同样的抽象多个具体的实现
 
+适配器模式 - 数据查找 - MySQL的搜索语句和elastic的搜索语句DSL-data search language不一样的通过一个适配器统一搜索语句
 
-适配器模式 - Spring框架中DispatcherServlet类的doDispatch方法中也能看到适配器模式的身影，它的作用是传递request的Controller并执行相应的方法、返回ModeView对象。Spring定义了适配接口，每个Controller有自己对应的适配器实现类，从而避免了大量if/else代码
+责任链模式 - token鉴权比如各种授权方式的鉴权handler校验
+
+
+
+
+
+晋升指南
+
+" 类命名多用 proxy\adapter\chain之类的，就会显得很有水准 "
