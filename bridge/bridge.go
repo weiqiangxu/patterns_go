@@ -9,6 +9,10 @@ type ICoffee interface {
 	OrderCoffee()
 }
 
+// ICoffee  > OrderCoffee
+
+// 
+
 // LargeCoffee 大杯咖啡，实现ICoffee接口
 type LargeCoffee struct {
 	ICoffeeAddtion
@@ -135,7 +139,7 @@ func NewCoffeeAddtionMilk() ICoffeeAddtion {
 	return &Milk{}
 }
 
-// NewCoffeeAddtionMilk 创建咖啡额外加糖
+// NewCoffeeAddtionSugar 创建咖啡额外加糖
 func NewCoffeeAddtionSugar() ICoffeeAddtion {
 	return &Sugar{}
 }

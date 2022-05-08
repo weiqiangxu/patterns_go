@@ -5,20 +5,13 @@
 
 适配器就是电源适配器，同样的概念～ 
 
-
-
 在开发之中更常见的示例就是：
 
 假设我需要一个接口，输出一个json格式数据的接口，这个接口输出的是固定的结构的用户信息；
 
 但是我获取用户信息有2种途径，一种是从redis获取的一个序列化的原始数据，还有一种是从elastic获取的文档结构的数据；
 
-
-那么提供一个适配器，不管你传入的对象是 redis_use or elastic_user 都将获取一个。json_user
-
-
-
-
+那么提供一个适配器，不管你传入的对象是 redis_use or elastic_user 都将获取一个 json_user
 
 
 2 干嘛用的
@@ -28,25 +21,13 @@
 
 不一样的输入、一样的输出
 
-
-
-
-
-
-
 3 实现的形式是什么样子
 
-
 案例之中代码大致意思是有3个对象
-
 
 多个源头 -- 有源头的抽象接口定义  --   有多个源头实现
 
 1个或多个适配器 --  有适配器的抽象接口定义  --  不同的源头对象进入可以在适配器之中处理，获取一致的输出
-
-
-
-
 
 精髓在于，新人接口代码，比如新增为用户数据从mongo之中拉取，那么这个新人知道，去扩展这个适配器，而不是把代码拷贝一份，在使用的时候
 
@@ -59,4 +40,18 @@ if dataType == mongo {
 只需要更改适配器，而不是需要更改每一个使用到 CovertTo5V 的地方
 
 
+4 具体成员
+
+Target 目标接口
+Adaptee 已经存在的被适配的接口，对这个接口进行适配。
+Adapter 对Adaptee接口与Target进行适配
+
+
+2 适配器模式在SpringMVC中的应用
+
+Spring定义了一个适配器接口，使得每一种Controller有一种对应的适配器实现类适配器替代controller执行相应的方法。
+
+获取HandlerExecutionChain中的handle，然后得到HandlerAdapter 的实现类然后调用相关的方法，
+
+在Spring MVC中，DispatcherServlet 为Client，HandlerAdapter 作为期望目标接口，具体的适配器实现类对Controller进行适配。
 
