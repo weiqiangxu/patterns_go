@@ -28,3 +28,12 @@ handlerChain.HandleRequest(request)
 
 token授权有很多种，短信、密码、rsa证书，那么依据责任链模式将token依次传递给各自的实现判定是否有效 ～
 
+
+
+很明显，之前的路由处理handler、逐级的handler，也可以称之为责任链；
+
+a实现他的路由、b实现他的路由、c实现他的路由、、、
+
+现在有太多的if else
+
+为啥不是提供一个路由校验的 interface 去给我们实现，实现了以后将实现注入到责任链之中，他会自动的逐级处理

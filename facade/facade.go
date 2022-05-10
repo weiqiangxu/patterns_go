@@ -75,3 +75,4 @@ type Coupon struct {
 func (coupon Coupon) IssueCoupons() {
 	fmt.Println(fmt.Sprintf("为手机号码为%s的用户发放优惠券", coupon.Telephone))
 }
+
